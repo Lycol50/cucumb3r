@@ -1,10 +1,12 @@
 # cucumber
 
-### Current stable version: 2.0.0
-
-> This is a fork of cucumber for HoennPE Server
+### Current stable version: 2.5.0
 
 > In this repository, we have included here a Discord Webhook Messages, every ban, ipban, mute, warn.
+
+> Added custom port for using MySQL databases
+
+> Adjust your settings at cucumber's folder located @ plugin's data folder
 
 **cucumber** is a complete moderation plugin for PocketMine-MP which features ban/mute management and logging of various significant events.
 
