@@ -12,7 +12,7 @@ database:
     username: cucumber
     password: mypassword123
     schema: cucumber # aka database
-    port: 3306
+    port: 3306 # customizable port
 
   # The maximum number of simultaneous SQL queries
   # Recommended: 1 for sqlite, 2 for MySQL. You may want to further increase this value if your MySQL connection is very slow.
@@ -56,4 +56,6 @@ punishment:
   list:
     lines-per-page: 10
 
+# put your discord webhook link below
+# for example: webh : ["webhookwebhookwebhook.com/webhook"]
 webh: []
