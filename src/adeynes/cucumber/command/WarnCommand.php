@@ -63,8 +63,8 @@ class WarnCommand extends CucumberCommand
                     $webhook = new Webhook($whook);
 
                     $msg = new Message();
-                    $msg->setUsername("HoennPE SysBan");
-                    $msg->setAvatarURL("https://cdn.discordapp.com/attachments/834138834999705670/836139083981520926/HoennPE_SummerLogo_00000.png");
+                    $msg->setUsername("cucumBAN");
+                    $msg->setAvatarURL("https://th.bing.com/th/id/R.3e31457af0eba4508a0f69e2aa4415f8?rik=okgaal1d19EDsg&riu=http%3a%2f%2fpngimg.com%2fuploads%2fcucumber%2fcucumber_PNG84281.png&ehk=1SM1m9pziiqKralyNFy2tsj4Hp%2fBWelIZK8Y2BVqG5s%3d&risl=&pid=ImgRaw&r=0");
                     $list = array( "bruuhh", "lmao", "xD", "HAHAHAHAHA", "heyyyyy", "lol", "rip", "ggwp", "gg");
                     $msg->setContent("");
 
@@ -72,7 +72,7 @@ class WarnCommand extends CucumberCommand
                     $embed->setTitle("WARNING");
                     $embed->setColor(0xFFFF00);
                     $embed->addField(array_rand($list), "> " . $target_name . "is banned by " . $sender->getName() . " for " . $expiration . " due to " . $reason);
-                    $embed->setFooter("cucumber for HoennPE", "https://github.com/HoennPE/cucumber");
+                    $embed->setFooter("🥒", "https://github.com/Lycol50/cucumber");
                     $msg->addEmbed($embed);
 
                     $webhook->send($msg);
