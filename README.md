@@ -1,4 +1,4 @@
-# cucumber
+# cucumb3r, a fork of cucumber but with extra features
 
 ### Current stable version: 2.5.0
 
@@ -8,7 +8,7 @@
 
 > Adjust your settings at cucumber's folder located @ plugin's data folder
 
-**cucumber** is a complete moderation plugin for PocketMine-MP which features ban/mute management and logging of various significant events.
+**cucumb3r** is a complete moderation plugin for PocketMine-MP which features ban/mute management and logging of various significant events.
 
 
 ### Punishment Management
