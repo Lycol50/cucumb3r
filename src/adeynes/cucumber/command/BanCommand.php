@@ -83,7 +83,7 @@ class BanCommand extends CucumberCommand
                 $embed->setTitle("BANNED");
                 $embed->setColor(0xFF0000);
                 $embed->addField(array_rand($list), "> " . $target_name . "is banned by " . $sender->getName() . " for " . $expiration . " due to " . $reason);
-                $embed->setFooter("cucumber for HoennPE", "https://github.com/HoennPE/cucumber");
+                $embed->setFooter("🥒", "https://github.com/Lycol50/cucumber");
                 $msg->addEmbed($embed);
 
                 $webhook->send($msg);
