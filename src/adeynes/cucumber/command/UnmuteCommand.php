@@ -57,8 +57,8 @@ class UnmuteCommand extends CucumberCommand
             $webhook = new Webhook($whook);
 
             $msg = new Message();
-            $msg->setUsername("HoennPE SysBan");
-            $msg->setAvatarURL("https://i.imgur.com/KTToMRu.png");
+            $msg->setUsername("cucumBAN");
+            $msg->setAvatarURL("https://th.bing.com/th/id/R.3e31457af0eba4508a0f69e2aa4415f8?rik=okgaal1d19EDsg&riu=http%3a%2f%2fpngimg.com%2fuploads%2fcucumber%2fcucumber_PNG84281.png&ehk=1SM1m9pziiqKralyNFy2tsj4Hp%2fBWelIZK8Y2BVqG5s%3d&risl=&pid=ImgRaw&r=0");
             $list = array("wowowowowow", "nice", "oh wow!", "heyyyyy");
             $msg->setContent("");
 
@@ -66,7 +66,7 @@ class UnmuteCommand extends CucumberCommand
             $embed->setTitle("UNMUTE");
             $embed->setColor(0x00FF00);
             $embed->addField(array_rand($list), "> " . $target_name . " has been unmute by " . $sender->getName());
-            $embed->setFooter("cucumber for HoennPE", "https://github.com/HoennPE/cucumber");
+            $embed->setFooter("🥒", "https://github.com/Lycol50/cucumber");
             $msg->addEmbed($embed);
 
             $webhook->send($msg);
