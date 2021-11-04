@@ -16,9 +16,12 @@ use pocketmine\command\CommandSender;
 use CortexPE\DiscordWebhookAPI\Message;
 use CortexPE\DiscordWebhookAPI\Webhook;
 use CortexPE\DiscordWebhookAPI\Embed;
+use pocketmine\utils\Config;
 
 class IpbanCommand extends CucumberCommand
 {
+
+    private $config_;
 
     public function __construct(Cucumber $plugin, CommandBlueprint $blueprint)
     {
@@ -137,6 +140,11 @@ class IpbanCommand extends CucumberCommand
         }*/
 
         return true;
+    }
+
+    public function getConfig(): Config
+    {
+        return $this->config_;
     }
 
 }

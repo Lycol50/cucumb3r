@@ -11,9 +11,12 @@ use adeynes\parsecmd\command\CommandParser;
 use adeynes\parsecmd\command\ParsedCommand;
 use InvalidArgumentException;
 use pocketmine\command\CommandSender;
+use pocketmine\utils\Config;
 
 class WarnCommand extends CucumberCommand
 {
+
+    private $config_;
 
     public function __construct(Cucumber $plugin, CommandBlueprint $blueprint)
     {
@@ -59,7 +62,7 @@ class WarnCommand extends CucumberCommand
                     $this->getPlugin()->formatAndSend($sender, 'success.warn', $warning_data);
 
                     // send details on discord server
-                    $whook = $this->getConfig()->get('webh');
+                    $whook = $this->getConfig()->get("webh");
                     $webhook = new Webhook($whook);
 
                     $msg = new Message();
@@ -82,6 +85,11 @@ class WarnCommand extends CucumberCommand
 
         $this->doIfTargetExists($warn, $sender, $target_name);
         return true;
+    }
+
+    public function getConfig(): Config
+    {
+        return $this->config_;
     }
 
 }

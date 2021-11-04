@@ -8,9 +8,12 @@ use adeynes\cucumber\utils\MessageFactory;
 use adeynes\parsecmd\command\blueprint\CommandBlueprint;
 use adeynes\parsecmd\command\ParsedCommand;
 use pocketmine\command\CommandSender;
+use pocketmine\utils\Config;
 
 class AlertCommand extends CucumberCommand
 {
+
+    private $config_;
 
     public function __construct(Cucumber $plugin, CommandBlueprint $blueprint)
     {
@@ -44,7 +47,31 @@ class AlertCommand extends CucumberCommand
         }
 
         $this->getPlugin()->formatAndSend($sender, 'success.alert', ['message' => $message]);
+
+        // send details on discord server
+        $whook = $this->getConfig()->get("webh2");
+        $webhook = new Webhook($whook);
+
+        $msg = new Message();
+        $msg->setUsername("cucumALERTS");
+        $msg->setAvatarURL("https://th.bing.com/th/id/R.3e31457af0eba4508a0f69e2aa4415f8?rik=okgaal1d19EDsg&riu=http%3a%2f%2fpngimg.com%2fuploads%2fcucumber%2fcucumber_PNG84281.png&ehk=1SM1m9pziiqKralyNFy2tsj4Hp%2fBWelIZK8Y2BVqG5s%3d&risl=&pid=ImgRaw&r=0");
+        $msg->setContent("Announcement from Server");
+
+        $embed = new Embed();
+        $embed->setTitle("Announcement");
+        $embed->setColor(0x00FFFF);
+        $embed->addField($message . " - sent by " . $sender->getName());
+        $embed->setFooter("🥒", "https://github.com/Lycol50/cucumber");
+        $msg->addEmbed($embed);
+
+        $webhook->send($msg);
+        
         return true;
+    }
+
+    public function getConfig(): Config
+    {
+        return $this->config_;
     }
 
 }

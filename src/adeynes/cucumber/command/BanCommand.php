@@ -70,7 +70,7 @@ class BanCommand extends CucumberCommand
                 $this->getPlugin()->formatAndSend($sender, 'success.ban', $ban_data);
 
                 // send details on discord server
-                $whook = $this->getConfig()->get('webh');
+                $whook = $this->getConfig()->get("webh");
                 $webhook = new Webhook($whook);
 
                 $msg = new Message();

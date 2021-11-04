@@ -13,9 +13,12 @@ use pocketmine\command\CommandSender;
 use CortexPE\DiscordWebhookAPI\Message;
 use CortexPE\DiscordWebhookAPI\Webhook;
 use CortexPE\DiscordWebhookAPI\Embed;
+use pocketmine\utils\Config;
 
 class PardonCommand extends CucumberCommand
 {
+
+    private $config_;
 
     public function __construct(Cucumber $plugin, CommandBlueprint $blueprint)
     {
@@ -44,7 +47,7 @@ class PardonCommand extends CucumberCommand
             $this->getPlugin()->formatAndSend($sender, 'success.pardon', ['player' => $target_name]);
 
             // send details on discord server
-            $whook = $this->getConfig()->get('webh');
+            $whook = $this->getConfig()->get("webh");
             $webhook = new Webhook($whook);
 
             $msg = new Message();
@@ -66,6 +69,11 @@ class PardonCommand extends CucumberCommand
             $sender->sendMessage($exception->getMessage());
             return false;
         }
+    }
+
+    public function getConfig(): Config
+    {
+        return $this->config_;
     }
 
 }

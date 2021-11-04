@@ -56,6 +56,13 @@ punishment:
   list:
     lines-per-page: 10
 
-# put your discord webhook link below
-# for example: webh : ["webhookwebhookwebhook.com/webhook"]
-webh: []
+# WEBHOOKS
+# This plugin uses JSON for webhooks, suitable for discord webhook,
+# if you want to use Webhooks to your site, create your own JSON Parser and deploy it to your site.
+
+# put your default webhook link below (this covers ban, unban. mute, ipban, ipunban)
+# for example: webh : "https://mysite.com/webhook"
+webh: " "
+# put your announcement discord link below (uses /alert command)
+# for example: webh2 : "https://mysite.com/webhook"
+webh2: " "
