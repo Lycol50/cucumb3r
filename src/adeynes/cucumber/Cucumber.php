@@ -173,6 +173,7 @@ final class Cucumber extends PluginBase
         }
 
         $connector->executeGeneric(Queries::CUCUMBER_ADD_PLAYER, ['name' => 'Server Console Administrator', 'ip' => '127.0.0.1']);
+        $connector->executeGeneric(Queries::CUCUMBER_ADD_PLAYER, ['name' => 'Server Console Administrator', 'ip' => '0.0.0.0']);
         $connector->waitAll();
     }
 
