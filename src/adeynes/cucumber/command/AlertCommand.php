@@ -61,7 +61,7 @@ class AlertCommand extends CucumberCommand
         $embed = new Embed();
         $embed->setTitle("Announcement");
         $embed->setColor(0x00FFFF);
-        $embed->addField("ℹ", $message . " - sent by " . $sender->getName());
+        $embed->setDescription($message . " - sent by " . $sender->getName());
         $embed->setFooter("🥒", "https://github.com/Lycol50/cucumber");
         $msg->addEmbed($embed);
 

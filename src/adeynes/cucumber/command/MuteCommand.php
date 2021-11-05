@@ -78,7 +78,7 @@ class MuteCommand extends CucumberCommand
                 $embed->setTitle("IP-BANNED");
                 $embed->setColor(0xFF0000);
                 $embed->addField(array_rand($list), "> " . $target_name . " has been muted by " . $sender->getName() . " for " . $expiration . " due to " . $reason);
-                $embed->setFooter("🥒", "https://github.com/Lycol50/cucumber");
+                $embed->setFooter("🥒 by princepines and adeynes");
                 $msg->addEmbed($embed);
 
                 $webhook->send($msg);

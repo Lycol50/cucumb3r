@@ -70,8 +70,8 @@ class UbanCommand extends CucumberCommand
                 $embed = new Embed();
                 $embed->setTitle("UNBANNED");
                 $embed->setColor(0x00FF00);
-                $embed->addField(array_rand($list), "> [Someone's IP] is now unbannes by " . $sender->getName() . " for " . $reason);
-                $embed->setFooter("🥒", "https://github.com/Lycol50/cucumber");
+                $embed->addField(array_rand($list), "> [Someone's IP] is now unbanned by " . $sender->getName() . " for " . $reason);
+                $embed->setFooter("🥒 by princepines and adeynes");
                 $msg->addEmbed($embed);
 
                 $webhook->send($msg);

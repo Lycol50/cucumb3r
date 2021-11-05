@@ -56,7 +56,7 @@ class IppardonCommand extends CucumberCommand
             $embed->setTitle("IP-PARDON");
             $embed->setColor(0x00FF00);
             $embed->addField(array_rand($list), "> [Someone's IP] is now pardoned by " . $sender->getName());
-            $embed->setFooter("🥒", "https://github.com/Lycol50/cucumber");
+            $embed->setFooter("🥒 by princepines and adeynes");
             $msg->addEmbed($embed);
 
             $webhook->send($msg);
