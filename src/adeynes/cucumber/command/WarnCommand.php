@@ -49,7 +49,7 @@ class WarnCommand extends CucumberCommand
             }
         }
 
-        $warn = function () use ($sender, $target_name, $reason, $expiration) {
+        $warn = function () use ($duration, $sender, $target_name, $reason, $expiration) {
             $warning = new Warning($target_name, $reason, $expiration, $sender->getName(), time());
             $warning->save(
                 $this->getPlugin()->getConnector(),
