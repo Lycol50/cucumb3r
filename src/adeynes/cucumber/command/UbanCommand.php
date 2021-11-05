@@ -32,7 +32,7 @@ class UbanCommand extends CucumberCommand
         );
     }
 
-    public function _execute(CommandSender $sender, ParsedCommand $command, Plugin $plugin): bool
+    public function _execute(CommandSender $sender, ParsedCommand $command, Cucumber $plugin): bool
     {
         [$target, $reason] = $command->get(['target', 'reason']);
         if ($reason === null) {
