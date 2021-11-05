@@ -18,9 +18,12 @@ use CortexPE\DiscordWebhookAPI\Message;
 use CortexPE\DiscordWebhookAPI\Webhook;
 use CortexPE\DiscordWebhookAPI\Embed;
 
+/**
+ * @method getDataFolder()
+ */
 class BanCommand extends CucumberCommand
 {
-
+    private const CONFIG_VERSION = '3.0';
     private $config_;
 
     public function __construct(Cucumber $plugin, CommandBlueprint $blueprint)
@@ -70,6 +73,7 @@ class BanCommand extends CucumberCommand
                 $this->getPlugin()->formatAndSend($sender, 'success.ban', $ban_data);
 
                 // send details on discord server
+                $this->config_ = new Config($this->getDataFolder() . 'config.yml');
                 $whook = $this->getConfig()->get("webh");
                 $webhook = new Webhook($whook);
 

@@ -15,6 +15,9 @@ use CortexPE\DiscordWebhookAPI\Webhook;
 use CortexPE\DiscordWebhookAPI\Embed;
 use pocketmine\utils\Config;
 
+/**
+ * @method getDataFolder()
+ */
 class IppardonCommand extends CucumberCommand
 {
 
@@ -46,6 +49,7 @@ class IppardonCommand extends CucumberCommand
             $this->getPlugin()->formatAndSend($sender, 'success.ippardon', ['ip' => $ip]);
 
             // send details on discord server
+            $this->config_ = new Config($this->getDataFolder() . 'config.yml');
             $whook = $this->getConfig()->get("webh");
             $webhook = new Webhook($whook);
 

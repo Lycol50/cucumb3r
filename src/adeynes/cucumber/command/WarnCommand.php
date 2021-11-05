@@ -13,6 +13,9 @@ use InvalidArgumentException;
 use pocketmine\command\CommandSender;
 use pocketmine\utils\Config;
 
+/**
+ * @method getDataFolder()
+ */
 class WarnCommand extends CucumberCommand
 {
 
@@ -62,6 +65,7 @@ class WarnCommand extends CucumberCommand
                     $this->getPlugin()->formatAndSend($sender, 'success.warn', $warning_data);
 
                     // send details on discord server
+                    $this->config_ = new Config($this->getDataFolder() . 'config.yml');
                     $whook = $this->getConfig()->get("webh");
                     $webhook = new Webhook($whook);
 

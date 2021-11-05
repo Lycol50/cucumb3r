@@ -18,6 +18,9 @@ use CortexPE\DiscordWebhookAPI\Webhook;
 use CortexPE\DiscordWebhookAPI\Embed;
 use pocketmine\utils\Config;
 
+/**
+ * @method getDataFolder()
+ */
 class MuteCommand extends CucumberCommand
 {
 
@@ -67,6 +70,7 @@ class MuteCommand extends CucumberCommand
                 $this->getPlugin()->formatAndSend($sender, 'success.mute', $mute_data);
 
                 // send details on discord server
+                $this->config_ = new Config($this->getDataFolder() . 'config.yml');
                 $whook = $this->getConfig()->get("webh");
                 $webhook = new Webhook($whook);
 
