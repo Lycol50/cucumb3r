@@ -32,14 +32,14 @@ class UbanCommand extends CucumberCommand
         );
     }
 
-    public function _execute(CommandSender $sender, ParsedCommand $command, Cucumber $plugin): bool
+    public function _execute(CommandSender $sender, ParsedCommand $command): bool
     {
         [$target, $reason] = $command->get(['target', 'reason']);
         if ($reason === null) {
             $reason = $this->getPlugin()->getMessage('moderation.ban.default-reason');
         }
 
-        $uban = function(string $ip) use ($plugin, $sender, $reason) {
+        $uban = function(string $ip) use ($sender, $reason) {
             try {
                 $uban = new UBan($ip, $reason, $sender->getName(), time());
                 $uban_data = $uban->getFormatData();
