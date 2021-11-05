@@ -12,19 +12,13 @@ use adeynes\parsecmd\command\CommandParser;
 use adeynes\parsecmd\command\ParsedCommand;
 use InvalidArgumentException;
 use pocketmine\command\CommandSender;
-use pocketmine\utils\Config;
 
 use CortexPE\DiscordWebhookAPI\Message;
 use CortexPE\DiscordWebhookAPI\Webhook;
 use CortexPE\DiscordWebhookAPI\Embed;
 
-/**
- * @method getDataFolder()
- */
 class BanCommand extends CucumberCommand
 {
-    private const CONFIG_VERSION = '3.0';
-    private $config_;
 
     public function __construct(Cucumber $plugin, CommandBlueprint $blueprint)
     {
@@ -73,8 +67,7 @@ class BanCommand extends CucumberCommand
                 $this->getPlugin()->formatAndSend($sender, 'success.ban', $ban_data);
 
                 // send details on discord server
-                $this->config_ = new Config($this->getDataFolder() . 'config.yml');
-                $whook = $this->getConfig()->get("webh");
+                $whook = $this->getPlugin()->getConfig()->get('webh');
                 $webhook = new Webhook($whook);
 
                 $msg = new Message();
@@ -101,11 +94,6 @@ class BanCommand extends CucumberCommand
 
         $this->doIfTargetExists($ban, $sender, $target_name);
         return true;
-    }
-
-    public function getConfig(): Config
-    {
-        return $this->config_;
     }
 
 }

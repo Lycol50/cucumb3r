@@ -16,13 +16,8 @@ use CortexPE\DiscordWebhookAPI\Webhook;
 use CortexPE\DiscordWebhookAPI\Embed;
 use pocketmine\utils\Config;
 
-/**
- * @method getDataFolder()
- */
 class UbanCommand extends CucumberCommand
 {
-
-    private $config_;
 
     public function __construct(Cucumber $plugin, CommandBlueprint $blueprint)
     {
@@ -43,7 +38,7 @@ class UbanCommand extends CucumberCommand
             $reason = $this->getPlugin()->getMessage('moderation.ban.default-reason');
         }
 
-        $uban = function(string $ip) use ($sender, $reason) {
+        $uban = function(string $ip) use ($plugin, $sender, $reason) {
             try {
                 $uban = new UBan($ip, $reason, $sender->getName(), time());
                 $uban_data = $uban->getFormatData();
@@ -62,8 +57,7 @@ class UbanCommand extends CucumberCommand
                 $this->getPlugin()->formatAndSend($sender, 'success.uban', $uban_data);
 
                 // send details on discord server
-                $this->config_ = new Config($this->getDataFolder() . 'config.yml');
-                $whook = $this->getConfig()->get("webh");
+                $whook = $this->getPlugin()->getConfig()->get('webh')
                 $webhook = new Webhook($whook);
 
                 $msg = new Message();
@@ -131,11 +125,6 @@ class UbanCommand extends CucumberCommand
         }*/
 
         return true;
-    }
-
-    public function getConfig(): Config
-    {
-        return $this->config_;
     }
 
 }

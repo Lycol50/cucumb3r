@@ -8,11 +8,13 @@ use adeynes\cucumber\utils\Queries;
 use adeynes\parsecmd\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\plugin\Plugin;
+use pocketmine\utils\Config;
 
 abstract class CucumberCommand extends Command
 {
 
     public const PERMANENT_DURATION_STRINGS = ["inf", "infinite", "perm", "permanent", "-1"];
+    private Config $config_;
 
     /**
      * @return Cucumber

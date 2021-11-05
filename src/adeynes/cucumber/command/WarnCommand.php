@@ -11,15 +11,9 @@ use adeynes\parsecmd\command\CommandParser;
 use adeynes\parsecmd\command\ParsedCommand;
 use InvalidArgumentException;
 use pocketmine\command\CommandSender;
-use pocketmine\utils\Config;
 
-/**
- * @method getDataFolder()
- */
 class WarnCommand extends CucumberCommand
 {
-
-    private $config_;
 
     public function __construct(Cucumber $plugin, CommandBlueprint $blueprint)
     {
@@ -33,7 +27,7 @@ class WarnCommand extends CucumberCommand
         );
     }
 
-    public function _execute(CommandSender $sender, ParsedCommand $command): bool
+    public function _execute(CommandSender $sender, ParsedCommand $command, $plugin): bool
     {
         [$target_name, $duration, $reason] = $command->get(['player', 'duration', 'reason']);
         $target_name = strtolower($target_name);
@@ -51,11 +45,11 @@ class WarnCommand extends CucumberCommand
             }
         }
 
-        $warn = function () use ($sender, $target_name, $reason, $expiration) {
+        $warn = function () use ($plugin, $sender, $target_name, $reason, $expiration) {
             $warning = new Warning($target_name, $reason, $expiration, $sender->getName(), time());
             $warning->save(
                 $this->getPlugin()->getConnector(),
-                function (int $insert_id, int $affected_rows) use ($sender, $target_name, $warning) {
+                function (int $insert_id, int $affected_rows) use ($expiration, $reason, $plugin, $sender, $target_name, $warning) {
                     $warning_data = $warning->getFormatData() + ['id' => strval($insert_id)];
 
                     if ($target = CucumberPlayer::getOnlinePlayer($target_name)) {
@@ -65,8 +59,7 @@ class WarnCommand extends CucumberCommand
                     $this->getPlugin()->formatAndSend($sender, 'success.warn', $warning_data);
 
                     // send details on discord server
-                    $this->config_ = new Config($this->getDataFolder() . 'config.yml');
-                    $whook = $this->getConfig()->get("webh");
+                    $whook = $this->getPlugin()->getConfig()->get('webh');
                     $webhook = new Webhook($whook);
 
                     $msg = new Message();
@@ -91,9 +84,5 @@ class WarnCommand extends CucumberCommand
         return true;
     }
 
-    public function getConfig(): Config
-    {
-        return $this->config_;
-    }
 
 }

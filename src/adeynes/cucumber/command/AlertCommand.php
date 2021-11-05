@@ -8,15 +8,9 @@ use adeynes\cucumber\utils\MessageFactory;
 use adeynes\parsecmd\command\blueprint\CommandBlueprint;
 use adeynes\parsecmd\command\ParsedCommand;
 use pocketmine\command\CommandSender;
-use pocketmine\utils\Config;
-use pocketmine\plugin\PluginBase;
 
-/**
- * @method getDataFolder()
- */
 class AlertCommand extends CucumberCommand
 {
-    private $config_;
 
     public function __construct(Cucumber $plugin, CommandBlueprint $blueprint)
     {
@@ -52,8 +46,7 @@ class AlertCommand extends CucumberCommand
         $this->getPlugin()->formatAndSend($sender, 'success.alert', ['message' => $message]);
 
         // send details on discord server
-        $this->config_ = new Config($this->getDataFolder() . 'config.yml');
-        $whook = $this->getConfig()->get('webh2');
+        $whook = $this->getPlugin()->getConfig()->get('webh2');
         $webhook = new Webhook($whook);
 
         $msg = new Message();
@@ -71,11 +64,6 @@ class AlertCommand extends CucumberCommand
         $webhook->send($msg);
         
         return true;
-    }
-
-    public function getConfig(): Config
-    {
-        return $this->config_;
     }
 
 }

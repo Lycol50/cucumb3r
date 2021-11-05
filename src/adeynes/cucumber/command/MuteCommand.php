@@ -16,15 +16,10 @@ use pocketmine\command\CommandSender;
 use CortexPE\DiscordWebhookAPI\Message;
 use CortexPE\DiscordWebhookAPI\Webhook;
 use CortexPE\DiscordWebhookAPI\Embed;
-use pocketmine\utils\Config;
 
-/**
- * @method getDataFolder()
- */
 class MuteCommand extends CucumberCommand
 {
 
-    private $config_;
 
     public function __construct(Cucumber $plugin, CommandBlueprint $blueprint)
     {
@@ -70,8 +65,7 @@ class MuteCommand extends CucumberCommand
                 $this->getPlugin()->formatAndSend($sender, 'success.mute', $mute_data);
 
                 // send details on discord server
-                $this->config_ = new Config($this->getDataFolder() . 'config.yml');
-                $whook = $this->getConfig()->get("webh");
+                $whook = $this->getPlugin()->getConfig()->get('webh');
                 $webhook = new Webhook($whook);
 
                 $msg = new Message();
@@ -97,11 +91,6 @@ class MuteCommand extends CucumberCommand
 
         $this->doIfTargetExists($mute, $sender, $target_name);
         return true;
-    }
-
-    public function getConfig(): Config
-    {
-        return $this->config_;
     }
 
 }
