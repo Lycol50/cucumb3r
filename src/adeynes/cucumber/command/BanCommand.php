@@ -73,13 +73,12 @@ class BanCommand extends CucumberCommand
                 $msg = new Message();
                 $msg->setUsername("cucumBAN");
                 $msg->setAvatarURL("https://th.bing.com/th/id/R.3e31457af0eba4508a0f69e2aa4415f8?rik=okgaal1d19EDsg&riu=http%3a%2f%2fpngimg.com%2fuploads%2fcucumber%2fcucumber_PNG84281.png&ehk=1SM1m9pziiqKralyNFy2tsj4Hp%2fBWelIZK8Y2BVqG5s%3d&risl=&pid=ImgRaw&r=0");
-                $list = array("wowowowowow", "uh-oh", "nice", "bruuhh", "lmao", "xD", "oh wow!", "heyyyyy", "lol", "rip", "ggwp");
                 $msg->setContent("");
 
                 $embed = new Embed();
                 $embed->setTitle("BANNED");
                 $embed->setColor(0xFF0000);
-                $embed->addField(array_rand($list), "> " . $target_name . "is banned by " . $sender->getName() . " for " . $expiration . " due to " . $reason);
+                $embed->setDescription($target_name . "is banned by " . $sender->getName() . " for " . $expiration . " due to " . $reason);
                 $embed->setFooter("🥒 by princepines and adeynes");
                 $msg->addEmbed($embed);
 
