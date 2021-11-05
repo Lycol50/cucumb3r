@@ -12,6 +12,10 @@ use adeynes\parsecmd\command\ParsedCommand;
 use InvalidArgumentException;
 use pocketmine\command\CommandSender;
 
+use CortexPE\DiscordWebhookAPI\Message;
+use CortexPE\DiscordWebhookAPI\Webhook;
+use CortexPE\DiscordWebhookAPI\Embed;
+
 class WarnCommand extends CucumberCommand
 {
 
@@ -71,7 +75,7 @@ class WarnCommand extends CucumberCommand
                     $embed = new Embed();
                     $embed->setTitle("WARNING");
                     $embed->setColor(0xFFFF00);
-                    $embed->addField(array_rand($list), "> " . $target_name . "is banned by " . $sender->getName() . " for " . $expiration . " due to " . $reason);
+                    $embed->addField(array_rand($list), "> " . $target_name . "is warned by " . $sender->getName() . " for " . $expiration . " due to " . $reason);
                     $embed->setFooter("🥒 by princepines and adeynes");
                     $msg->addEmbed($embed);
 

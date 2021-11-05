@@ -14,8 +14,6 @@ use pocketmine\command\CommandSender;
 use CortexPE\DiscordWebhookAPI\Message;
 use CortexPE\DiscordWebhookAPI\Webhook;
 use CortexPE\DiscordWebhookAPI\Embed;
-use pocketmine\plugin\Plugin;
-use pocketmine\utils\Config;
 
 class UbanCommand extends CucumberCommand
 {
