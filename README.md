@@ -1,5 +1,8 @@
 # cucumb3r, a fork of cucumber but with extra features
 
+[![](https://poggit.pmmp.io/ci.badge/Lycol50/cucumb3r/cucumber?build=25)](https://poggit.pmmp.io/ci/Lycol50/cucumb3r/cucumber)
+[![](https://poggit.pmmp.io/shield.state/cucumb3r)](https://poggit.pmmp.io/p/cucumb3r)
+
 ### Current stable version: 2.0.0-princepines
 
 > In this repository, we have included here a Discord Webhook Messages, every ban, ipban, mute, warn.
