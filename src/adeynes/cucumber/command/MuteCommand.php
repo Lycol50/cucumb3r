@@ -51,7 +51,7 @@ class MuteCommand extends CucumberCommand
             }
         }
 
-        $mute = function () use ($sender, $target_name, $reason, $expiration) {
+        $mute = function () use ($duration, $sender, $target_name, $reason, $expiration) {
             try {
                 $mute = new Mute($target_name, $reason, $expiration, $sender->getName(), time());
                 $mute_data = $mute->getFormatData();
@@ -76,7 +76,7 @@ class MuteCommand extends CucumberCommand
                 $embed = new Embed();
                 $embed->setTitle("IP-BANNED");
                 $embed->setColor(0xFF0000);
-                $embed->setDescription($target_name . " has been muted by " . $sender->getName() . " for " . $expiration . " due to " . $reason);
+                $embed->setDescription($target_name . " has been muted by " . $sender->getName() . " for " . $duration . " due to " . $reason);
                 $embed->setFooter("🥒 by princepines and adeynes");
                 $msg->addEmbed($embed);
 

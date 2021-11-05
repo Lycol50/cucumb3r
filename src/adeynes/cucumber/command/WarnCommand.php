@@ -53,7 +53,7 @@ class WarnCommand extends CucumberCommand
             $warning = new Warning($target_name, $reason, $expiration, $sender->getName(), time());
             $warning->save(
                 $this->getPlugin()->getConnector(),
-                function (int $insert_id, int $affected_rows) use ($expiration, $reason, $sender, $target_name, $warning) {
+                function (int $insert_id, int $affected_rows) use ($duration, $expiration, $reason, $sender, $target_name, $warning) {
                     $warning_data = $warning->getFormatData() + ['id' => strval($insert_id)];
 
                     if ($target = CucumberPlayer::getOnlinePlayer($target_name)) {
@@ -74,7 +74,7 @@ class WarnCommand extends CucumberCommand
                     $embed = new Embed();
                     $embed->setTitle("WARNING");
                     $embed->setColor(0xFFFF00);
-                    $embed->setDescription($target_name . "is warned by " . $sender->getName() . " for " . $expiration . " due to " . $reason);
+                    $embed->setDescription($target_name . " is warned by " . $sender->getName() . " for " . $duration . " due to " . $reason);
                     $embed->setFooter("🥒 by princepines and adeynes");
                     $msg->addEmbed($embed);
 

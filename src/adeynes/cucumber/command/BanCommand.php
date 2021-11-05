@@ -50,7 +50,7 @@ class BanCommand extends CucumberCommand
             }
         }
 
-        $ban = function () use ($sender, $target_name, $reason, $expiration) {
+        $ban = function () use ($duration, $sender, $target_name, $reason, $expiration) {
             try {
                 $ban = new Ban($target_name, $reason, $expiration, $sender->getName(), time());
                 $ban_data = $ban->getFormatData();
@@ -78,7 +78,7 @@ class BanCommand extends CucumberCommand
                 $embed = new Embed();
                 $embed->setTitle("BANNED");
                 $embed->setColor(0xFF0000);
-                $embed->setDescription($target_name . "is banned by " . $sender->getName() . " for " . $expiration . " due to " . $reason);
+                $embed->setDescription($target_name . " is banned by " . $sender->getName() . " for " . $duration . " due to " . $reason);
                 $embed->setFooter("🥒 by princepines and adeynes");
                 $msg->addEmbed($embed);
 

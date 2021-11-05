@@ -49,7 +49,7 @@ class IpbanCommand extends CucumberCommand
             }
         }
 
-        $ip_ban = function (string $ip) use ($sender, $reason, $expiration) {
+        $ip_ban = function (string $ip) use ($duration, $sender, $reason, $expiration) {
             try {
                 $ip_ban = new IpBan($ip, $reason, $expiration, $sender->getName(), time());
                 $ip_ban_data = $ip_ban->getFormatData();
@@ -79,7 +79,7 @@ class IpbanCommand extends CucumberCommand
                 $embed = new Embed();
                 $embed->setTitle("IP-BANNED");
                 $embed->setColor(0xFF0000);
-                $embed->setDescription("[Someone's IP] has been ip-banned by " . $sender->getName() . " for " . $expiration . " due to " . $reason);
+                $embed->setDescription("[Someone's IP] has been ip-banned by " . $sender->getName() . " for " . $duration . " due to " . $reason);
                 $embed->setFooter("🥒 by princepines and adeynes");
                 $msg->addEmbed($embed);
 
