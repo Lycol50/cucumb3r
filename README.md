@@ -1,6 +1,6 @@
 # cucumb3r, a fork of cucumber but with extra features
 
-### Current stable version: 2.5.0
+### Current stable version: 2.0.0-princepines
 
 > In this repository, we have included here a Discord Webhook Messages, every ban, ipban, mute, warn.
 
