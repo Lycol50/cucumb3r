@@ -14,6 +14,7 @@ use pocketmine\command\CommandSender;
 use CortexPE\DiscordWebhookAPI\Message;
 use CortexPE\DiscordWebhookAPI\Webhook;
 use CortexPE\DiscordWebhookAPI\Embed;
+use pocketmine\plugin\Plugin;
 use pocketmine\utils\Config;
 
 class UbanCommand extends CucumberCommand
@@ -31,7 +32,7 @@ class UbanCommand extends CucumberCommand
         );
     }
 
-    public function _execute(CommandSender $sender, ParsedCommand $command): bool
+    public function _execute(CommandSender $sender, ParsedCommand $command, Plugin $plugin): bool
     {
         [$target, $reason] = $command->get(['target', 'reason']);
         if ($reason === null) {
@@ -57,7 +58,7 @@ class UbanCommand extends CucumberCommand
                 $this->getPlugin()->formatAndSend($sender, 'success.uban', $uban_data);
 
                 // send details on discord server
-                $whook = $this->getPlugin()->getConfig()->get('webh')
+                $whook = $this->getPlugin()->getConfig()->get('webh');
                 $webhook = new Webhook($whook);
 
                 $msg = new Message();
