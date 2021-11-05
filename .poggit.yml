@@ -4,5 +4,18 @@ branches:
 - master
 projects:
   cucumber:
-    path: "/"
+    path: ""
+    libs:
+      - src: CortexPE/DiscordWebhookAPI/Webhook
+        version: ^1.0.1
+        branch: master
+      - src: adeynes/asyncio/asyncio
+        version: ^0.2.0
+        branch: master
+      - src: poggit/libasynql/libasynql
+        version: ^3.3.2
+        branch: master
+      - src : adeynes/parsecmd/parsecmd
+        version: ^5.0.1
+        branch: master
 ...
