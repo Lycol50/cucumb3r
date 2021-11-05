@@ -6,7 +6,7 @@ projects:
   cucumber:
     path: ""
     libs:
-      - src: CortexPE\DiscordWebhookAPI
+      - src: CortexPE/DiscordWebhookAPI/DiscordWebhookAPI
         version: ^1.0.1
         branch: master
       - src: adeynes/asyncio/asyncio
