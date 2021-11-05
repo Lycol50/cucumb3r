@@ -27,7 +27,7 @@ class WarnCommand extends CucumberCommand
         );
     }
 
-    public function _execute(CommandSender $sender, ParsedCommand $command, $plugin): bool
+    public function _execute(CommandSender $sender, ParsedCommand $command): bool
     {
         [$target_name, $duration, $reason] = $command->get(['player', 'duration', 'reason']);
         $target_name = strtolower($target_name);
@@ -45,11 +45,11 @@ class WarnCommand extends CucumberCommand
             }
         }
 
-        $warn = function () use ($plugin, $sender, $target_name, $reason, $expiration) {
+        $warn = function () use ($sender, $target_name, $reason, $expiration) {
             $warning = new Warning($target_name, $reason, $expiration, $sender->getName(), time());
             $warning->save(
                 $this->getPlugin()->getConnector(),
-                function (int $insert_id, int $affected_rows) use ($expiration, $reason, $plugin, $sender, $target_name, $warning) {
+                function (int $insert_id, int $affected_rows) use ($expiration, $reason, $sender, $target_name, $warning) {
                     $warning_data = $warning->getFormatData() + ['id' => strval($insert_id)];
 
                     if ($target = CucumberPlayer::getOnlinePlayer($target_name)) {

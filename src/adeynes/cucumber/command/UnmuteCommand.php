@@ -31,7 +31,7 @@ class UnmuteCommand extends CucumberCommand
         );
     }
 
-    public function _execute(CommandSender $sender, ParsedCommand $command, $plugin): bool
+    public function _execute(CommandSender $sender, ParsedCommand $command): bool
     {
         [$target_name] = $command->get(['player']);
         $target_name = strtolower($target_name);
