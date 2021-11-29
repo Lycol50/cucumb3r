@@ -11,6 +11,8 @@
 
 > Adjust your settings at cucumber's folder located @ plugin's data folder
 
+> Official Moderation Plugin of PMnS
+
 **cucumb3r** is a complete moderation plugin for PocketMine-MP which features ban/mute management and logging of various significant events.
 
 
