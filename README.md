@@ -1,6 +1,6 @@
 # cucumber, a fork of cucumber but with extra features
 
-[![](https://poggit.pmmp.io/ci.badge/Lycol50/cucumber/cucumber?build=25)](https://poggit.pmmp.io/ci/Lycol50/cucumber/cucumber)
+[![](https://poggit.pmmp.io/ci.badge/Lycol50/cucumber/cucumber)](https://poggit.pmmp.io/ci/Lycol50/cucumber/cucumber)
 
 ### Current stable version: 2.0.1
 
@@ -12,7 +12,7 @@
 
 > Official Moderation Plugin of PMnS
 
-**cucumb3r** is a complete moderation plugin for PocketMine-MP which features ban/mute management and logging of various significant events.
+**cucumber** is a complete moderation plugin for PocketMine-MP which features ban/mute management and logging of various significant events.
 
 
 ### Punishment Management
