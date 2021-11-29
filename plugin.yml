@@ -3,7 +3,7 @@ main: adeynes\cucumber\Cucumber
 version: 2.0.0
 api: [3.0.0, 3.21.0]
 load: POSTWORLD
-author: adeynes, princepines
+author: adeynes, Lycol50
 description: Advanced, flexible moderation plugin, modified by princepines
 website: https://github.com/HoennPE/cucumber
 
