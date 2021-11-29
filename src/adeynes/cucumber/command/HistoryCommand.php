@@ -164,7 +164,7 @@ class HistoryCommand extends CucumberCommand
             ['player' => $player, 'all' => true],
             function (array $rows) use (&$history, $next) {
                 foreach ($rows as $row) {
-                    $history[] = new class($row['warning_id'], Warning::from($row)) implements Formattable, HasTimeOfCreation {
+                    $history[] = new class($row['warning_id'], adeynes\cucumber\command\Warning::from($row)) implements Formattable, HasTimeOfCreation {
                         /** @var int */
                         private $id;
 
